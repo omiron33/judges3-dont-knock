@@ -1,0 +1,275 @@
+{
+ "fps": 60,
+ "samples": 10,
+ "tier": "standard",
+ "lyric": {
+  "haloSpread": 9,
+  "shade": 0.5,
+  "lift": false
+ },
+ "scenes": [
+  {
+   "id": "00",
+   "scene": "s00-title",
+   "from": 0.0,
+   "to": 3.81,
+   "hold": "the title in the first seconds"
+  },
+  {
+   "id": "01",
+   "scene": "s01-rent",
+   "from": 3.81,
+   "to": 9.32
+  },
+  {
+   "id": "02",
+   "scene": "s02-visit",
+   "from": 9.32,
+   "to": 13.16
+  },
+  {
+   "id": "03",
+   "scene": "s03-palace",
+   "from": 13.16,
+   "to": 15.89
+  },
+  {
+   "id": "04",
+   "scene": "s04-summer",
+   "from": 15.89,
+   "to": 20.82
+  },
+  {
+   "id": "05",
+   "scene": "s05-tribute",
+   "from": 20.82,
+   "to": 25.21
+  },
+  {
+   "id": "06",
+   "scene": "s06-payment",
+   "from": 25.21,
+   "to": 29.6
+  },
+  {
+   "id": "07",
+   "scene": "s07-secret",
+   "from": 29.6,
+   "to": 33.98
+  },
+  {
+   "id": "08",
+   "scene": "s08-sent",
+   "from": 33.98,
+   "to": 38.37
+  },
+  {
+   "id": "09",
+   "scene": "s09-private",
+   "from": 38.37,
+   "to": 42.76,
+   "hold": "one request"
+  },
+  {
+   "id": "10",
+   "scene": "s10-out",
+   "from": 42.76,
+   "to": 47.15
+  },
+  {
+   "id": "11",
+   "scene": "s11-message",
+   "from": 47.15,
+   "to": 51.54
+  },
+  {
+   "id": "12",
+   "scene": "s12-dagger",
+   "from": 51.54,
+   "to": 55.856,
+   "shake": "the blow lands on \"hard\": the one violent collision in the film"
+  },
+  {
+   "id": "13",
+   "scene": "s13-porch",
+   "from": 55.856,
+   "to": 59.977
+  },
+  {
+   "id": "14",
+   "scene": "s14-knock",
+   "from": 59.977,
+   "to": 64.417
+  },
+  {
+   "id": "15",
+   "scene": "s15-boys",
+   "from": 64.417,
+   "to": 66.727
+  },
+  {
+   "id": "16",
+   "scene": "s16-quarry",
+   "from": 66.727,
+   "to": 68.798
+  },
+  {
+   "id": "17",
+   "scene": "s17-polite",
+   "from": 68.798,
+   "to": 73.48
+  },
+  {
+   "id": "18",
+   "scene": "s18-sight",
+   "from": 73.48,
+   "to": 78.97
+  },
+  {
+   "id": "19",
+   "scene": "s19-relieving",
+   "from": 78.97,
+   "to": 83.36
+  },
+  {
+   "id": "20",
+   "scene": "s20-nobody",
+   "from": 83.36,
+   "to": 87.75
+  },
+  {
+   "id": "21",
+   "scene": "s21-key",
+   "from": 87.75,
+   "to": 92.15
+  },
+  {
+   "id": "22",
+   "scene": "s22-floor",
+   "from": 92.15,
+   "to": 94.48
+  },
+  {
+   "id": "23",
+   "scene": "s23-free",
+   "from": 94.48,
+   "to": 96.231
+  },
+  {
+   "id": "24",
+   "scene": "s24-knock2",
+   "from": 96.231,
+   "to": 100.641
+  },
+  {
+   "id": "25",
+   "scene": "s25-boys2",
+   "from": 100.641,
+   "to": 102.941
+  },
+  {
+   "id": "26",
+   "scene": "s26-quarry2",
+   "from": 102.941,
+   "to": 105.022
+  },
+  {
+   "id": "27",
+   "scene": "s27-polite2",
+   "from": 105.022,
+   "to": 109.71
+  },
+  {
+   "id": "28",
+   "scene": "s28-sight2",
+   "from": 109.71,
+   "to": 115.2
+  },
+  {
+   "id": "29",
+   "scene": "s29-horn",
+   "from": 115.2,
+   "to": 119.59
+  },
+  {
+   "id": "30",
+   "scene": "s30-came",
+   "from": 119.59,
+   "to": 123.43
+  },
+  {
+   "id": "31",
+   "scene": "s31-fords",
+   "from": 123.43,
+   "to": 126.17
+  },
+  {
+   "id": "32",
+   "scene": "s32-reign",
+   "from": 126.17,
+   "to": 128.36
+  },
+  {
+   "id": "33",
+   "scene": "s33-eighty",
+   "from": 128.36,
+   "to": 132.76
+  },
+  {
+   "id": "34",
+   "scene": "s34-check",
+   "from": 132.76,
+   "to": 137.69
+  },
+  {
+   "id": "35",
+   "scene": "s35-knock3",
+   "from": 137.69,
+   "to": 142.346
+  },
+  {
+   "id": "36",
+   "scene": "s36-boys3",
+   "from": 142.346,
+   "to": 144.666
+  },
+  {
+   "id": "37",
+   "scene": "s37-quarry3",
+   "from": 144.666,
+   "to": 146.736
+  },
+  {
+   "id": "38",
+   "scene": "s38-mistake",
+   "from": 146.736,
+   "to": 151.4
+  },
+  {
+   "id": "39",
+   "scene": "s39-break",
+   "from": 151.4,
+   "to": 157.43
+  },
+  {
+   "id": "40",
+   "scene": "s40-tag",
+   "from": 157.43,
+   "to": 164.56,
+   "hold": "the spoken tag"
+  },
+  {
+   "id": "41",
+   "scene": "s41-rest",
+   "from": 164.56,
+   "to": 172.23
+  },
+  {
+   "id": "42",
+   "scene": "s42-end",
+   "from": 172.23,
+   "to": 182.4,
+   "hold": "the book closes and the end title"
+  }
+ ]
+}

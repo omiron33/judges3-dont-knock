@@ -1,0 +1,17 @@
+.DS_Store
+._*
+node_modules
+node_modules/
+out/
+media/
+movies/
+intake/*
+!intake/sung-lyrics.txt
+!intake/official-lyrics.txt
+.dashboard/
+
+.env
+.env.*
+*.log
+docs/WORKER-BRIEF.md
+tools/dev-still.sh
