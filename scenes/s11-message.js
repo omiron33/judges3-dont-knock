@@ -18,7 +18,7 @@ export default (P) => {
   return {
     name: 's11-message', from: P.from, to: P.to,
     frag: THRONE_GLSL,
-    uniforms: { ...THRONE_UNIFORMS, uAper: 0.5, uFocus: 25, uAmb: L(60, 62, 75, 1.4), uFillDir: [0.3, 0.55, -0.78], uFillSoft: 7, uHaze: L(30, 34, 48, 0.5), uHazeD: 0.002, uDust: 1.6, uVol: 0.0, uVolTint: [0.8, 0.9, 1.15], uDrape: [-80, 80], uGround: -16,
+    uniforms: { ...THRONE_UNIFORMS, uAper: 0.5, uFocus: 25, uAmb: L(70, 66, 70, 2.8), uFillDir: [0.3, 0.55, -0.78], uFillSoft: 7, uHaze: L(30, 34, 48, 0.5), uHazeD: 0.002, uDust: 1.6, uVol: 0.0, uVolTint: [0.8, 0.9, 1.15], uDrape: [-80, 80], uGround: -16,
       uWin: [0.6, 0.5, 0.25], uCand: [0, 1], uCandP: [ROOM.candA[0], ROOM.candA[1], CAND[0], CAND[1]], uStill: 1, uSeat: 0,
       uLay: [2, 9, 9, 9, 9, 9, 2], uCarry: [0, 0, 0, 0, 0, 0, 0] },
     camera: cam,
@@ -37,14 +37,15 @@ export default (P) => {
       u.uF1.value = OFF; u.uF2.value = OFF; u.uF3.value = OFF; u.uF4.value = OFF; u.uF5.value = OFF;
       setTones(u, [TONES.ehud, null, null, null, null, null, TONES.eglon]);
       u.uFocus.value = 25 - cam(t).pos[2];
-      const lights = roomLights(t, { moon: 1.2, cand: 1.0, candA: 0, key: 0.35, candP: [0, 0, CAND[0], CAND[1]], still: 1, extra: [
-        { pos: [11, 12, 6], col: L(150, 160, 200, 1.2), rad: 3, range: 20 },
+      const lights = roomLights(t, { moon: 2.0, cand: 1.4, candA: 0, key: 1.3, candP: [0, 0, CAND[0], CAND[1]], still: 1, extra: [
+        { pos: [11, 12, 6], col: L(170, 170, 200, 3.0), rad: 3, range: 24 },
+        { pos: [2, 14, -10], col: L(255, 190, 130, 2.6), rad: 4, range: 34 },
         { pos: [ROOM.throneX + 2, 17, 27.2], col: L(255, 160, 80, 3), rad: 1, range: 7 },
       ] });
       u.uL.value = packLights(lights);
       u.uLN.value = lights.length;
     },
-    post(t) { return grade(t, { exposure: 1.35, bloom: 0.14, threshold: 0.95, vignette: 0.6, grain: 0.022 }); },
+    post(t) { return grade(t, { exposure: 1.6, bloom: 0.14, threshold: 0.95, vignette: 0.45, grain: 0.022 }); },
     finish() { return { grade: { shadows: [0.01, 0.012, 0.025], highlights: [1.0, 0.95, 0.86], amount: 0.4 } }; },
   };
 };

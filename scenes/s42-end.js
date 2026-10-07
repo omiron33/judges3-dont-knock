@@ -1,6 +1,6 @@
 // s42-end · (outro and end title, 172.2-182.4). The book again from above by its candle: the cut-paper
 // palace and palms fold back down into the page, the leather cover swings shut on a beat, the end
-// title is stamped on it (lyric layer), and at the last the candle gutters and goes out.
+// title is stamped on it (lyric layer), and it ends on the closed book exactly as the film began.
 import { grade, ease, clamp01, mix } from '/song/lib/look.js';
 import { packLights, flicker, L } from '/song/lib/paper.js';
 import { BOOK_GLSL, BOOK_UNIFORMS } from '/song/lib/x-book.js';
@@ -9,8 +9,9 @@ export const kind = 'shader';
 export default (P) => {
   const shut = BEATS.find((b) => b >= P.from + 3.6) ?? P.from + 3.6;   // the cover lands on a beat
   const cam = (t) => {
-    const k = ease.inOut3(clamp01((t - P.from) / (P.to - P.from)));
-    return { pos: [mix(0.5, -0.5, k), mix(-2.0, -1.0, k), mix(8.0, -26.0, ease.out3(clamp01((t - P.from) / 5.0)))], target: [0.0, -1.0, 60.0], fov: 48, roll: mix(0.0, 0.02, k) };
+    // out of the page (the opening's dive in reverse) and back to the exact framing the film opened on
+    const k = ease.inOut3(clamp01((t - P.from) / 5.5));
+    return { pos: [mix(0.0, -1.5, k), mix(-1.0, -3.0, k), mix(14.0, -20.0, k)], target: [mix(0.0, -0.5, k), mix(-1.0, -0.5, k), 60.0], fov: mix(46, 52, k), roll: mix(0.0, 0.03, k) };
   };
   return {
     name: 's42-end', from: P.from, to: P.to, frag: BOOK_GLSL,
@@ -19,10 +20,10 @@ export default (P) => {
     update(t, u) {
       u.uPop.value = 1 - ease.inOut3(clamp01((t - P.from - 0.4) / 2.0));
       // the cover swings over and lands with a small bounce
-      const c = clamp01((t - (shut - 1.1)) / 1.1);
+      const c = clamp01((t - (shut - 1.45)) / 1.45);   // as smooth as the opening
       const land = t > shut ? 0.04 * Math.exp(-6 * (t - shut)) * Math.sin((t - shut) * 30) : 0;
       u.uOpen.value = 1 - ease.inOut3(c) + Math.abs(land);
-      const out = clamp01((t - (P.to - 1.6)) / 1.2);
+      const out = 0;   // the candle burns on: the film ends on the same book it opened with
       const fl = flicker(t, 2.1) * (1 - ease.inOut3(out)) * (1 + 0.4 * Math.sin(t * 40) * out);
       u.uFlame.value = Math.max(0, fl);
       const cm = cam(t);

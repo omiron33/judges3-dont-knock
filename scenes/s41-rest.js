@@ -36,8 +36,8 @@ float sheetOpac(int i) { if (i == 7) return 0.5; if (i == 10) return 0.93; if (i
 float ends(vec2 p, float z) {
   // wide enough to fill the view through the opening from every camera on the pull, yet hidden behind
   // the front of the box from the farthest one
-  float w = 0.62 * (z + 45.0) + 4.0;
-  float h = 0.344 * (z + 45.5) + 5.0;
+  float w = 1.4 * (0.62 * (z + 45.0) + 4.0);
+  float h = 1.4 * (0.344 * (z + 45.5) + 5.0);
   return sdBox2(p - vec2(0.0, 1.0), vec2(w, h));
 }
 float villageSD(vec2 p, bool holes) {
@@ -89,8 +89,7 @@ float sheetSD(int i, vec2 p, bool hq) {
   if (i == 0) {
     // the front frame of the box: a thick wooden surround with an opening
     float opening = sdBox2(p - vec2(0.0, 1.0), vec2(24.0, 13.5));
-    float outer = sdBox2(p - vec2(0.0, 1.0), vec2(40.0, 25.0));
-    return cut(max(outer, -opening), p, 90.0);
+    return 1e3;   // no box: the land stays a land; the ending returns to the book
   }
   if (i == 1) {
     float y = -11.0 + 1.0 * sin(p.x * 0.15) + 0.5 * sin(p.x * 0.4);
@@ -171,7 +170,7 @@ Mat sheetMat(int i, vec2 p, float sd) {
     m.alb *= 0.7 + 0.5 * strip;
     return m;
   }
-  if (i == 9) { Mat m = hillMat(p, lin(vec3(0.34, 0.29, 0.27)), 36.0, 0.0); if (p.y > 15.0) m = mCard(lin(vec3(0.05))); m.trans = 0.45; return m; }
+  if (i == 9) { Mat m = hillMat(p, lin(vec3(0.34, 0.29, 0.27)), 36.0, 0.0); m.trans = 0.45; return m; }
   if (i == 10) {
     Mat m = skyMat(p, 6.0, 0.4, 37.0);
     m.alb *= mix(vec3(1.0), lin(vec3(0.5, 0.5, 0.62)), smoothstep(8.0, 30.0, p.y));   // dusk violet overhead
@@ -187,7 +186,7 @@ export default (P) => {
   const pull = (t) => ease.inOut3(clamp01((t - P.from) / dur));
   const cam = (t) => {
     const e = pull(t);
-    return { pos: [mix(-3, 0, e), mix(-2.5, 1.5, e), mix(-30, -80, e)], target: [mix(-1, 0, e), mix(-3.5, 1.0, e), 40], fov: 38, roll: 0.0 };
+    return { pos: [mix(-3, 0, e), mix(-2.5, 1.5, e), mix(-30, -37, e)], target: [mix(-1, 0, e), mix(-3.5, 1.0, e), 40], fov: 38, roll: 0.0 };
   };
   return {
     name: 's41-rest', from: P.from, to: P.to,

@@ -34,7 +34,8 @@ export default (P) => {
   };
   return {
     name: 's12-dagger', from: P.from, to: P.to,
-    frag: SHADOW_GLSL,
+    // Ehud is left-handed: the whole shadow play is shown mirrored, so the blade is in his left hand
+    frag: SHADOW_GLSL.replace('camRay(vec2(uRes.x - fc.x, fc.y), ro)', 'camRay(fc, ro)'),
     uniforms: { ...SHADOW_UNIFORMS, uAper: 0.3, uFocus: 40, uAmb: L(60, 55, 55, 0.6), uFillDir: [0.2, 0.5, -0.84], uFillSoft: 6, uBg: [0.002, 0.002, 0.002], uDust: 0.8 },
     camera: cam,
     update(t, u) {
